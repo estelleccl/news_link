@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyText
+  submitted_by: MyString
+  tagging_id: 1
+
+two:
+  headline: MyText
+  submitted_by: MyString
+  tagging_id: 1
