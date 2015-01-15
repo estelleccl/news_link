@@ -1,0 +1,16 @@
+<%= div_for post do %>
+  <div class="large-12 columns border border-box glassy-bg mt pt">
+    <div class="mb pb">
+      <b><%= h(post.headline) %></b>
+    </div>
+    <div class="mb pb">
+      <%= truncate h(post.content), length: 160 %>
+      <%= link_to 'read more', post %> 
+    </div>
+    <small>Submitted by:</small> <i><strong><%= h(post.submitted_by) %></strong></i><br />
+    <sup class="text-muted"><small>Posted <%= time_ago_in_words(post.created_at)%></small></sup><br />
+    <div class="tags">
+      <%=raw tag_links(post.all_tags)%>
+    </div>
+  </div>
+<% end %>

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   # get "/auth/:provider/callback" => "autentications#create"
 
-  resources :posts, only: [:create]
+  resources :posts, only: [:create, :show]
+
+  get 'tags/:tag', to: 'posts#index', as: "tag"
 
   root 'posts#index'
 
