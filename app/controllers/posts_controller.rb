@@ -3,9 +3,10 @@ class PostsController < ApplicationController
 
   def index
   	if params[:tag]
-	    @posts = Post.tagged_with(params[:tag])
+	    @posts = Post.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
 	  else
-	    @posts = Post.all
+	    # @posts = Post.all
+	    @posts = Post.all.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
 	  end
   end
 
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
 	  @post = Post.new(post_params)
 
 	  if @post.save
-	  	@posts = Post.all
+	  	@posts = Post.all.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
 	  	render :index, :notice => "Your post has been created successfully"
 	  else
 	  	render :index

@@ -5,7 +5,9 @@
     </div>
     <div class="mb pb">
       <%= truncate h(post.content), length: 160 %>
-      <%= link_to 'read more', post %> 
+      <% if post.content.length >= 160 %> 
+        <%= link_to 'read more', post %> 
+      <% end %>
     </div>
     <small>Submitted by:</small> <i><strong><%= h(post.submitted_by) %></strong></i><br />
     <sup class="text-muted"><small>Posted <%= time_ago_in_words(post.created_at)%></small></sup><br />

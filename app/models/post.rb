@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
 	has_many :taggings
 	has_many :tags, through: :taggings
+	# self.per_page = 10
 
 	def all_tags=(names)
 	  self.tags = names.split(",").map do |name|
